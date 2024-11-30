@@ -1,12 +1,22 @@
+import { useState } from 'react';
 import './App.css';
 import Header from './componentes/header/Header';
 import Formulario from './componentes/Formulario/Formulario';
+import MiOrg from './componentes/MiOrg';
 
 function App() {
+  const [mostrarForm, actualizarMostrar] = useState(true)
+
+  const cambiarMostrar = () =>{
+    actualizarMostrar(!mostrarForm)
+  }
+
   return (
     <div className="App">
       <Header />
-      <Formulario />
+      {mostrarForm && <Formulario />}
+     
+      <MiOrg propsMostrar={cambiarMostrar}/>
     </div>
   );
 }

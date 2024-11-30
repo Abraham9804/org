@@ -14,9 +14,9 @@ function Formulario(){
     return <section className="secction__form">
                 <form onSubmit={enviarForm}>
                     <h2>Rellena el formulario para crear el colaborador.</h2>
-                    <CampoTexto name="Nombre" placeholder="Ingresar nombre"/>
-                    <CampoTexto name="Puesto" placeholder="Ingresar puesto"/>
-                    <CampoTexto name="Foto" placeholder="Ingresar enlace de foto"/>
+                    <CampoTexto name="Nombre" placeholder="Ingresar nombre" required={true}/>
+                    <CampoTexto name="Puesto" placeholder="Ingresar puesto" required={true}/>
+                    <CampoTexto name="Foto" placeholder="Ingresar enlace de foto" required={true}/>
                     <ListaOpciones />
                     <Boton> 
                         Crear
