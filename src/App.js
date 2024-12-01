@@ -16,7 +16,7 @@ function App() {
       <Header />
       {mostrarForm && <Formulario />}
      
-      <MiOrg propsMostrar={cambiarMostrar}/>
+      <MiOrg mostrar={cambiarMostrar}/>
     </div>
   );
 }
