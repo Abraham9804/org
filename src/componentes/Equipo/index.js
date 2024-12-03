@@ -1,4 +1,5 @@
 import "./Equipo.css"
+import Colaborador from "../Colaborador"
 
 const Equipo = (props) => {
     const {titulo, colorDestaque, colorFondo} = props.datos
@@ -8,7 +9,8 @@ const Equipo = (props) => {
     return <section className="equipo" style={background}>
                 <h3 style={borderBottom}>{titulo}</h3>
                 <div className="colaboradores">
-
+                    <Colaborador />
+                    <Colaborador />
                 </div>
             </section>
 }
