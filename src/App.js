@@ -7,9 +7,14 @@ import Equipo from './componentes/Equipo';
 
 function App() {
   const [mostrarForm, actualizarMostrar] = useState(false)
+  const [colaboradores, actualizarListaColab] = useState([])
 
   const cambiarMostrar = () =>{
     actualizarMostrar(!mostrarForm)
+  }
+
+  const registrarColab = (colab) => {
+    actualizarListaColab([...colaboradores, colab])
   }
 
   const equipos = [
@@ -53,12 +58,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {mostrarForm && <Formulario equipos={equipos.map(equipo => equipo.titulo)}/>}
+      {mostrarForm && <Formulario equipos={equipos.map(equipo => equipo.titulo)} registrar={registrarColab}/>}
      
       <MiOrg mostrar={cambiarMostrar}/>
 
       {
-        equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo}/>
+        equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/>
         )
       }
     </div>

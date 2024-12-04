@@ -22,7 +22,7 @@ function Formulario(props){
             fotos,
             equipo
         }
-        console.log(datosEnviar)
+        props.registrar(datosEnviar)
     }
 
     return <section className="secction__form">
