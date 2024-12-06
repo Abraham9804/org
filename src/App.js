@@ -7,7 +7,36 @@ import Equipo from './componentes/Equipo';
 
 function App() {
   const [mostrarForm, actualizarMostrar] = useState(false)
-  const [colaboradores, actualizarListaColab] = useState([])
+  const [colaboradores, actualizarListaColab] = useState([{
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/genesysrm.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://www.github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
+  }])
 
   const cambiarMostrar = () =>{
     actualizarMostrar(!mostrarForm)
@@ -55,6 +84,14 @@ function App() {
     }
   ]
 
+  const eliminarColab = () => {
+    console.log("Eliminar colaborador")
+  }
+
+  const cambiarColor = (color, equipo) => {
+    console.log("desde app", color, equipo)
+  }
+
   return (
     <div className="App">
       <Header />
@@ -63,7 +100,8 @@ function App() {
       <MiOrg mostrar={cambiarMostrar}/>
 
       {
-        equipos.map((equipo) => <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/>
+        equipos.map((equipo) => <Equipo datos={equipo} eliminarColab={eliminarColab} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+        cambiarColor={cambiarColor}/>
         )
       }
     </div>
