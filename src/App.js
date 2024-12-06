@@ -38,15 +38,7 @@ function App() {
     puesto: "Dev FullStack"
   }])
 
-  const cambiarMostrar = () =>{
-    actualizarMostrar(!mostrarForm)
-  }
-
-  const registrarColab = (colab) => {
-    actualizarListaColab([...colaboradores, colab])
-  }
-
-  const equipos = [
+  const [equipos, actualizarEquipo] = useState([
     {
       titulo: "Programación",
       colorDestaque: "#57C278",
@@ -82,14 +74,29 @@ function App() {
       colorDestaque: "#FF8A29",
       colorFondo: "#FFEEDF"
     }
-  ]
+  ])
+
+  const cambiarMostrar = () =>{
+    actualizarMostrar(!mostrarForm)
+  }
+
+  const registrarColab = (colab) => {
+    actualizarListaColab([...colaboradores, colab])
+  }
 
   const eliminarColab = () => {
     console.log("Eliminar colaborador")
   }
 
-  const cambiarColor = (color, equipo) => {
-    console.log("desde app", color, equipo)
+  const cambiarColor = (color, titulo) => {
+    const equiposActualizado = equipos.map((equipo)=>{
+        if(equipo.titulo === titulo){
+          equipo.colorDestaque = color
+        }
+
+        return equipo
+    })
+    actualizarEquipo(equiposActualizado)
   }
 
   return (
