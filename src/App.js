@@ -97,6 +97,10 @@ function App() {
     actualizarListaColab([...colaboradores, colab])
   }
 
+  const registrarEquipo = (nuevoEquipo) => {
+    actualizarEquipo([...equipos, {...nuevoEquipo, id: uuidv4()}])
+  }
+
   const eliminarColab = (id) => {
     const colaboradoresActual = colaboradores.filter(colaborador => colaborador.id !== id)
     actualizarListaColab(colaboradoresActual)
@@ -117,7 +121,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {mostrarForm && <Formulario equipos={equipos.map(equipo => equipo.titulo)} registrar={registrarColab}/>}
+      {mostrarForm && <Formulario equipos={equipos.map(equipo => equipo.titulo)} registrar={registrarColab} registrarEquipo={registrarEquipo}/>}
      
       <MiOrg mostrar={cambiarMostrar}/>
 
