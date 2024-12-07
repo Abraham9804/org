@@ -3,14 +3,14 @@ import Colaborador from "../Colaborador"
 import hexToRgba from 'hex-to-rgba';
 
 const Equipo = (props) => {
-    const {titulo, colorDestaque} = props.datos
+    const {titulo, colorDestaque, id} = props.datos
     const {colaboradores, eliminarColab, cambiarColor} = props
     
     const background = {backgroundColor: hexToRgba(colorDestaque,0.6)}
     const borderBottom = {borderColor: colorDestaque}
     
     const recibirColor = (e) => {
-        cambiarColor(e.target.value, titulo)
+        cambiarColor(e.target.value, id)
     }
 
     return <>
