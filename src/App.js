@@ -13,35 +13,40 @@ function App() {
     equipo: "Front End",
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
-    puesto: "Instructor"
+    puesto: "Instructor",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Programación",
     foto: "https://github.com/genesysrm.png",
     nombre: "Genesys Rondón",
-    puesto: "Desarrolladora de software e instructora"
+    puesto: "Desarrolladora de software e instructora",
+    fav: false
   },
   {
     id: uuidv4(),
     equipo: "UX y Diseño",
     foto: "https://github.com/JeanmarieAluraLatam.png",
     nombre: "Jeanmarie Quijada",
-    puesto: "Instructora en Alura Latam"
+    puesto: "Instructora en Alura Latam",
+    fav: false
   },
   {
     id: uuidv4(),
     equipo: "Programación",
     foto: "https://www.github.com/christianpva.png",
     nombre: "Christian Velasco",
-    puesto: "Head de Alura e Instructor"
+    puesto: "Head de Alura e Instructor",
+    fav: false
   },
   {
     id: uuidv4(),
     equipo: "Innovación y Gestión",
     foto: "https://github.com/JoseDarioGonzalezCha.png",
     nombre: "Jose Gonzalez",
-    puesto: "Dev FullStack"
+    puesto: "Dev FullStack",
+    fav: false
   }])
 
   const [equipos, actualizarEquipo] = useState([
@@ -118,6 +123,16 @@ function App() {
     actualizarEquipo(equiposActualizado)
   }
 
+  const like = (id) => {
+  const colaboradoresFav =  colaboradores.map(colaborador => {
+      if(colaborador.id === id){
+        colaborador.fav = !colaborador.fav
+      }
+      return colaborador
+    })
+
+    actualizarListaColab(colaboradoresFav)
+  }
   return (
     <div className="App">
       <Header />
@@ -127,7 +142,7 @@ function App() {
 
       {
         equipos.map((equipo) => <Equipo datos={equipo} eliminarColab={eliminarColab} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-        cambiarColor={cambiarColor}/>
+        cambiarColor={cambiarColor} like={like}/>
         )
       }
     </div>

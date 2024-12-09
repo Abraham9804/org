@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./Formulario.css"
-import CampoTexto from "../CampoTexto"
+import Campo from "../Campo"
 import ListaOpciones from "../ListaOpciones"
 import Boton from "../Boton"
 
@@ -40,9 +40,9 @@ function Formulario(props){
     return <section className="secction__form">
                 <form onSubmit={enviarForm}>
                     <h2>Rellena el formulario para crear el colaborador.</h2>
-                    <CampoTexto name="Nombre" placeholder="Ingresar nombre" required={true} valor={nombre} actualizarValor={setNombre}/>
-                    <CampoTexto name="Puesto" placeholder="Ingresar puesto" required={true} valor={puesto} actualizarValor={setPuesto}/>
-                    <CampoTexto name="Foto" placeholder="Ingresar enlace de foto" required={true} valor={foto} actualizarValor={setFoto}/>
+                    <Campo name="Nombre" placeholder="Ingresar nombre" required={true} valor={nombre} actualizarValor={setNombre}/>
+                    <Campo name="Puesto" placeholder="Ingresar puesto" required={true} valor={puesto} actualizarValor={setPuesto}/>
+                    <Campo name="Foto" placeholder="Ingresar enlace de foto" required={true} valor={foto} actualizarValor={setFoto}/>
                     <ListaOpciones valor={equipo} actualizarValor={setEquipo} equipos={equipoTitulo}/>
                     <Boton> 
                         Crear
@@ -51,8 +51,8 @@ function Formulario(props){
 
                 <form onSubmit={enviarEquipo}>
                     <h2>Rellena el formulario para crear el equipo.</h2>
-                    <CampoTexto name="Titulo" placeholder="Ingresar titulo" required={true} valor={titulo} actualizarValor={setTitulo}/>
-                    <CampoTexto name="Color" placeholder="Ingresar color" required={true} valor={color} actualizarValor={setColor}/>
+                    <Campo name="Titulo" placeholder="Ingresar titulo" required={true} valor={titulo} actualizarValor={setTitulo}/>
+                    <Campo name="Color" type="color" placeholder="Ingresar color" required={true} valor={color} actualizarValor={setColor}/>
                     <Boton> 
                         Crear Equipo
                     </Boton>
